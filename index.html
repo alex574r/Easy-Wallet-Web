@@ -9,39 +9,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="particles" id="particles-js"></div>
-        <div class="hero-content">
-            <div class="logo-container">
-                <img src="assets/logo.png" alt="Easy Wallet Logo" class="logo animate__animated animate__fadeInDown">
-            </div>
-            <h1 class="animate__animated animate__fadeIn animate__delay-1s">Easy Wallet</h1>
-            <p class="tagline animate__animated animate__fadeIn animate__delay-1-5s">La revolución en tus finanzas personales</p>
-            <div class="animate__animated animate__fadeIn animate__delay-2s">
-                <a href="#features" class="btn">Explorar</a>
-                <a href="#updates" class="btn btn-outline">Actualizaciones</a>
-            </div>
-            
-            <!-- Animación 3D de la Wallet -->
-            <div class="wallet-animation animate__animated animate__fadeIn animate__delay-2-5s">
-                <div class="wallet-card">
-                    <div class="wallet-face">
-                        <img src="assets/wallet-ui-1.png" alt="Easy Wallet UI">
-                    </div>
-                    <div class="wallet-face">
-                        <img src="assets/wallet-ui-2.png" alt="Easy Wallet UI">
-                    </div>
-                    <div class="wallet-face">
-                        <img src="assets/wallet-ui-3.png" alt="Easy Wallet UI">
-                    </div>
-                    <div class="wallet-face">
-                        <img src="assets/wallet-ui-4.png" alt="Easy Wallet UI">
+   <!-- Hero Section -->
+<section class="hero">
+    <div class="particles" id="particles-js"></div>
+    <div class="hero-content">
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="Easy Wallet Logo" class="logo animate__animated animate__fadeInDown">
+        </div>
+        <h1 class="animate__animated animate__fadeIn animate__delay-1s">Easy Wallet</h1>
+        <p class="tagline animate__animated animate__fadeIn animate__delay-1-5s">La revolución en tus finanzas personales</p>
+        <div class="animate__animated animate__fadeIn animate__delay-2s">
+            <a href="#features" class="btn">Explorar</a>
+            <a href="#updates" class="btn btn-outline">Actualizaciones</a>
+        </div>
+        
+        <!-- NUEVA ANIMACIÓN CON TU TARJETA (cambia solo esto) -->
+        <div class="wallet-animation animate__animated animate__fadeIn animate__delay-2-5s">
+            <div class="wallet-card">
+                <!-- Cara frontal - Tu imagen de tarjeta -->
+                <div class="wallet-face">
+                    <img src="assets/easywallet-card.png" alt="Tarjeta EasyWallet">
+                </div>
+                <!-- Cara trasera - Diseño de tarjeta genérico -->
+                <div class="wallet-face wallet-back">
+                    <div class="card-back">
+                        <div class="magnetic-strip"></div>
+                        <div class="signature-line">FIRMA</div>
+                        <div class="cvv">CVV 123</div>
+                        <div class="chip"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     
     <!-- Features Section -->
     <section class="features" id="features">

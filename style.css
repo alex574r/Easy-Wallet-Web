@@ -4,7 +4,6 @@
   --dark: #1a1a2e;
   --light: #f8f9fa;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -85,7 +84,52 @@ h1 {
   height: 100%;
   z-index: 1;
 }
+/* Animación de la tarjeta */
+.wallet-animation {
+    width: 300px; /* Ajusta al tamaño de tu imagen */
+    height: 190px;
+    margin: 40px auto;
+}
 
+.wallet-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para el reverso de la tarjeta */
+.card-back {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #63097c, #00d4ff);
+    border-radius: 15px;
+    padding: 20px;
+    position: relative;
+}
+
+.magnetic-strip {
+    height: 40px;
+    background: #000;
+    margin-top: 20px;
+}
+
+.signature-line {
+    margin-top: 30px;
+    height: 30px;
+    background: repeating-linear-gradient(45deg, #fff, #fff 10px, #ccc 10px, #ccc 20px);
+}
+
+.cvv {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: #fff;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
 /* Sección de características con efecto parallax */
 .features {
   padding: 100px 0;
