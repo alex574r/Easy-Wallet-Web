@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual de Usuario - Easy Wallet</title>
+  <style>
+    :root {
+      --primary: #003366; /* Azul corporativo oscuro */
+      --secondary: #e6f2ff; /* Azul claro para fondos */
+      --accent: #8A2BE2; /* Violeta/Azul del UI para acentos */
+      --dark-bg: #1a1a1a;
+      --light-text: #f0f0f0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3, h4 {
+      color: var(--primary);
+      margin-top: 30px;
+    }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; border-bottom: 2px solid var(--secondary); padding-bottom: 8px; }
+    h3 { font-size: 1.4em; color: var(--accent); }
+    .content-block {
+      background: white;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .screenshot {
+      border: 1px solid #ddd;
+      max-width: 90%;
+      display: block;
+      margin: 20px auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      border-radius: 8px;
+    }
+    .step-box {
+      background: var(--secondary);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 5px solid var(--accent);
+    }
+    .step-number {
+      background: var(--primary);
+      color: white;
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 10px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .step-content {
+        display: flex;
+        align-items: center;
+    }
+    .toc {
+      background: var(--secondary);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .toc ul { list-style-type: none; padding-left: 0; }
+    .toc li { margin: 8px 0; }
+    .toc a { text-decoration: none; color: var(--primary); font-weight: 500;}
+    .toc a:hover { text-decoration: underline; color: var(--accent); }
+    .warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px; margin: 20px 0; border-radius: 0 4px 4px 0;
+    }
+    .quick-tip {
+      background: #e0f2f1;
+      border-left: 4px solid #009688;
+      padding: 12px; margin: 15px 0; border-radius: 0 4px 4px 0;
+    }
+    footer {
+      text-align: center; margin-top: 50px; padding: 20px; color: #666; font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Manual de Usuario de Easy Wallet</h1>
+    <p style="color: #e6f2ff; font-size: 1.1em;">Tu guía completa para dominar tus finanzas.</p>
+  </header>
+
+  <div class="toc">
+    <h2>Tabla de Contenidos</h2>
+    <ul>
+      <li><a href="#introduccion">1. Introducción</a></li>
+      <li><a href="#requisitos">2. Requisitos del Sistema</a></li>
+      <li><a href="#instalacion">3. Instalación</a></li>
+      <li><a href="#primeros-pasos">4. Primeros Pasos: Registro e Inicio de Sesión</a></li>
+      <li><a href="#interfaz">5. Conociendo la Interfaz Principal</a></li>
+      <li><a href="#funcionalidades">6. Funcionalidades Clave</a></li>
+      <li><a href="#faq">7. Preguntas Frecuentes (FAQ)</a></li>
+      <li><a href="#troubleshooting">8. Solución de Problemas</a></li>
+      <li><a href="#glosario">9. Glosario</a></li>
+      <li><a href="#soporte">10. Contacto y Soporte</a></li>
+    </ul>
+  </div>
+
+  <div class="content-block" id="introduccion">
+    <h2>1. Introducción</h2>
+    <p>¡Bienvenido a <strong>Easy Wallet</strong>! Este manual está diseñado para ayudarte a aprovechar al máximo nuestra aplicación, desde la configuración inicial hasta el uso de las funciones más avanzadas. Te guiaremos paso a paso para que puedas gestionar tus finanzas de manera fácil, segura e intuitiva.</p>
+    
+    <h3>1.1. Público Objetivo y Propósito</h3>
+    <p>Este manual está dirigido principalmente a <strong>usuarios principiantes e intermedios</strong>. Su propósito es servir como una guía de referencia completa que te permita:</p>
+    <ul>
+        <li>Instalar y configurar tu cuenta rápidamente.</li>
+        <li>Entender todas las secciones y funcionalidades de la aplicación.</li>
+        <li>Realizar operaciones financieras como transferencias, gestión de tarjetas e inversiones.</li>
+        <li>Resolver dudas comunes y problemas técnicos básicos.</li>
+    </ul>
+
+    <h3>1.2. Convenciones Usadas</h3>
+    <p>Para facilitar la lectura, usamos las siguientes convenciones:</p>
+    <ul>
+        <li><strong>Negrita:</strong> Se usa para nombrar elementos de la interfaz con los que puedes interactuar, como botones, menús o campos de texto (ej. <strong>Iniciar Sesión</strong>).</li>
+        <li><code>Código/Ruta:</code> Se usa para nombres de archivo o texto que debes introducir.</li>
+    </ul>
+  </div>
+
+  <div class="content-block" id="requisitos">
+    <h2>2. Requisitos del Sistema</h2>
+    <p>Para asegurar un rendimiento óptimo de Easy Wallet, tu sistema debe cumplir con los siguientes requisitos:</p>
+    <ul>
+      <li><strong>Sistema Operativo:</strong> Windows 10/11 o macOS 10.15+</li>
+      <li><strong>Java Runtime Environment:</strong> Versión 17 o superior.</li>
+      <li><strong>Procesador:</strong> Intel Core i3 o equivalente.</li>
+      <li><strong>RAM:</strong> 4 GB mínimo, 8 GB recomendado.</li>
+      <li><strong>Espacio en Disco:</strong> 200 MB de espacio libre.</li>
+    </ul>
+  </div>
+  
+  <div class="content-block" id="instalacion">
+    <h2>3. Instalación</h2>
+    <p>La instalación es un proceso sencillo. Para obtener instrucciones detalladas, por favor consulta nuestro manual específico de instalación.</p>    
+    <a href="manual_instalacion.html" target="_blank" style="font-weight: bold; color: var(--accent);">📗 Ver Manual de Instalación</a>
+  </div>
+
+  <div class="content-block" id="primeros-pasos">
+    <h2>4. Primeros Pasos: Registro e Inicio de Sesión</h2>
+    <p>Una vez instalada la aplicación, lo primero es crear tu cuenta e iniciar sesión.</p>
+
+    <h3>4.1. Cómo Registrar una Nueva Cuenta</h3>
+    <div class="step-box">
+      <div class="step-content"><span class="step-number">1</span> En la pantalla de inicio, haz clic en el botón <strong>Regístrate</strong>.</div>
+    </div>
+    <div class="step-box">
+      <div class="step-content"><span class="step-number">2</span> Rellena el formulario con tus datos personales. Los campos marcados con (*) son obligatorios.</div>
+      <img src="/assets/register.png" alt="Pantalla de registro de Easy Wallet" class="screenshot">
+      <div class="quick-tip">
+        <strong>Tip:</strong> Elige una contraseña segura que combine letras mayúsculas, minúsculas, números y símbolos para proteger tu cuenta.
+      </div>
+    </div>
+    <div class="step-box">
+       <div class="step-content"><span class="step-number">3</span> Acepta los <strong>Términos & Condiciones</strong> y haz clic en <strong>Registrarse</strong> para finalizar.</div>
+    </div>
+    
+    <h3>4.2. Cómo Iniciar Sesión</h3>
+    <div class="step-box">
+       <div class="step-content"><span class="step-number">1</span> En la pantalla principal, introduce tu <strong>Usuario</strong> (ej: MASDMAX...) y <strong>Contraseña</strong>.</div>
+       <img src="/assets/login.png" alt="Pantalla de inicio de sesión de Easy Wallet" class="screenshot">
+    </div>
+    <div class="step-box">
+        <div class="step-content"><span class="step-number">2</span> Haz clic en el botón <strong>Iniciar Sesión</strong> para acceder a tu panel principal.</div>
+        <p style="margin-left: 50px; margin-top: 10px;">Si no recuerdas tu clave, puedes usar el enlace <strong>¿Olvidaste la Contraseña?</strong> para recuperarla.</p>
+    </div>
+  </div>
+
+  <div class="content-block" id="interfaz">
+    <h2>5. Conociendo la Interfaz Principal</h2>
+    <p>Al iniciar sesión, llegarás a la <strong>Pantalla Principal</strong> o Dashboard. Desde aquí tienes acceso a todas las funcionalidades.</p>
+    <img src="/assets/dashboard.png" alt="Dashboard principal de Easy Wallet" class="screenshot">
+    <table style="width:100%; margin-top: 20px;">
+      <tr style="background-color: var(--primary); color: white;">
+        <th style="padding: 10px;">Área</th>
+        <th>Descripción</th>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><strong>1. Menú de Navegación (Izquierda)</strong></td>
+        <td style="padding: 10px;">Tu centro de control. Desde aquí puedes navegar a secciones como <strong>Retiros</strong>, <strong>Transferencia</strong>, <strong>Movimientos</strong>, <strong>Mis Datos</strong>, <strong>Inversiones</strong>, etc.</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><strong>2. Panel Principal (Centro)</strong></td>
+        <td style="padding: 10px;">Muestra tu saldo actual y tarjetas de acceso rápido para las operaciones más comunes: <strong>Retirar</strong>, <strong>Transferir</strong> y ver tu <strong>Actividad</strong>.</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><strong>3. Panel de Novedades (Derecha)</strong></td>
+        <td style="padding: 10px;">Un área para notificaciones, noticias y un resumen rápido de tus <strong>Inversiones</strong>.</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="content-block" id="funcionalidades">
+    <h2>6. Funcionalidades Clave</h2>
+    <p>Easy Wallet está diseñado para simplificar tu vida financiera. A continuación, te explicamos cómo usar sus funciones más importantes.</p>
+
+    <h3>6.1. Cómo Gestionar tus Tarjetas</h3>
+    <p>Centraliza todas tus tarjetas de débito y crédito en un solo lugar.</p>
+    <div class="step-box">
+      <div class="step-content"><span class="step-number">1</span> En el menú de navegación, haz clic en <strong>Mis tarjetas</strong>.</div>
+      <img src="/assets/cards.png" alt="Sección Mis Tarjetas en Easy Wallet" class="screenshot">
+    </div>
+    <div class="step-box">
+      <div class="step-content"><span class="step-number">2</span> En esta pantalla, verás una representación visual de tus tarjetas y una tabla con los detalles de cada una (Número de Tarjeta, CVV, Fecha de Vencimiento).</div>
+    </div>
+    <div class="step-box">
+      <div class="step-content"><span class="step-number">3</span> Para añadir una nueva tarjeta, rellena los datos en la sección <strong>Easy Card Dynamic</strong> y haz clic en <strong>Agregar Tarjeta</strong>.</div>
+    </div>
+
+    <h3>6.2. Cómo Invertir y Simular Rendimientos</h3>
+    <p>Explora oportunidades de inversión y proyecta tus ganancias directamente desde la aplicación.</p>
+    <div class="step-box">
+      <div class="step-content"><span class="step-number">1</span> En el menú de navegación, haz clic en <strong>Inversiones</strong>.</div>
+      <img src="/assets/investments.png" alt="Sección de Inversiones y simulación en Easy Wallet" class="screenshot">
+    </div>
+    <div class="step-box">
+      <div class="step-content"><span class="step-number">2</span> Usa los deslizadores para ajustar la <strong>cantidad de dinero</strong> que deseas invertir y la <strong>duración en meses</strong>.</div>
+    </div>
+     <div class="step-box">
+      <div class="step-content"><span class="step-number">3</span> La aplicación calculará automáticamente cuánto <strong>Obtendrías</strong> al final del periodo.</div>
+      <p style="margin-left: 50px; margin-top: 10px;">En la parte inferior, puedes consultar una tabla con el historial de todas tus operaciones de inversión y sus rendimientos.</p>
+    </div>
+  </div>
+
+  <div class="content-block" id="faq">
+    <h2>7. Preguntas Frecuentes (FAQ)</h2>
+    
+    <h4>¿Qué hago si olvido mi contraseña?</h4>
+    <p>En la pantalla de inicio de sesión, haz clic en el enlace <strong>"¿Olvidaste la Contraseña?"</strong>. Se te pedirá que verifiques tu identidad a través de tu correo electrónico para poder establecer una nueva contraseña.</p>
+
+    <h4>¿Es seguro introducir los datos de mis tarjetas?</h4>
+    <p>Sí. Easy Wallet utiliza cifrado de extremo a extremo y protocolos de seguridad de nivel bancario para proteger toda tu información. Tus datos nunca se comparten con terceros.</p>
+
+    <h4>¿Puedo usar la aplicación en más de un dispositivo?</h4>
+    <p>Actualmente, tu cuenta de Easy Wallet está vinculada a la instalación en un único ordenador para maximizar la seguridad.</p>
+  </div>
+  
+  <div class="content-block" id="troubleshooting">
+    <h2>8. Solución de Problemas</h2>
+
+    <h4>La aplicación no se inicia o se cierra inesperadamente.</h4>
+    <ul>
+        <li><strong>Solución 1:</strong> Asegúrate de tener la versión más reciente de Java instalada en tu sistema.</li>
+        <li><strong>Solución 2:</strong> Reinicia tu ordenador. A veces, esto resuelve problemas temporales.</li>
+        <li><strong>Solución 3:</strong> Si el problema persiste, intenta reinstalar la aplicación.</li>
+    </ul>
+
+    <h4>No puedo conectar con el servidor.</h4>
+    <ul>
+        <li><strong>Solución:</strong> Verifica tu conexión a internet. Easy Wallet necesita una conexión activa para sincronizar tus datos de forma segura.</li>
+    </ul>
+
+    <div class="warning">
+      <strong>¿El problema continúa?</strong> Si ninguna de estas soluciones funciona, por favor, contacta a nuestro equipo de soporte.
+    </div>
+  </div>
+
+  <div class="content-block" id="glosario">
+    <h2>9. Glosario</h2>
+    <dl>
+        <dt><strong>CURP (Clave Única de Registro de Población)</strong></dt>
+        <dd>Código alfanumérico de identidad de 18 caracteres utilizado en México.</dd>
+        <dt><strong>CVV (Card Verification Value)</strong></dt>
+        <dd>Código de seguridad de 3 o 4 dígitos que se encuentra normalmente en el reverso de las tarjetas de crédito o débito.</dd>
+        <dt><strong>NIP (Número de Identificación Personal)</strong></dt>
+        <dd>Clave numérica secreta utilizada para verificar la identidad del titular de una tarjeta.</dd>
+        <dt><strong>Rendimiento</strong></dt>
+        <dd>La ganancia o beneficio que se obtiene de una inversión.</dd>
+    </dl>
+  </div>
+
+  <div class="content-block" id="soporte">
+    <h2>10. Contacto y Soporte</h2>
+    <p>Estamos aquí para ayudarte. Si tienes alguna pregunta que no se responde en este manual o necesitas asistencia técnica, no dudes en contactarnos.</p>
+    <ul>
+      <li><strong>Correo Electrónico:</strong> <a href="mailto:soporte@horizonlabs.com">soporte@horizonlabs.com</a></li>
+      <li><strong>Página Web:</strong> <a href="index.html">easywallet.com</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>© 2025 Easy Wallet - Todos los derechos reservados</p>
+    <p>Documentación generada por Horizon Labs®</p>
+  </footer>
+</body>
+</html>

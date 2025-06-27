@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Técnico - Easy Wallet v1.0</title>
+  <style>
+    :root {
+      --primary: #003366;
+      --secondary: #e6f2ff;
+      --accent: #ff6b00;
+      --code-bg: #2d2d2d;
+      --code-text: #f8f8f2;
+      --danger: #dc3545;
+      --warning: #ffc107;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--primary);
+      margin-top: 30px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 1.4em;
+      color: var(--accent);
+    }
+
+    .content-block {
+      background: white;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--secondary);
+    }
+
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: #d63384;
+    }
+
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+      tab-size: 4;
+      font-family: 'Consolas', 'Menlo', monospace;
+    }
+
+    .diagram {
+      border: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+      margin: 20px 0;
+      background: white;
+      border-radius: 8px;
+    }
+
+    .diagram img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .toc {
+      background: var(--secondary);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .toc ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .toc li {
+      margin: 8px 0;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+      color: var(--accent);
+    }
+
+    .note,
+    .warning-box,
+    .danger-box {
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      border-left-width: 5px;
+      border-left-style: solid;
+    }
+
+    .note {
+      border-color: #17a2b8;
+      background-color: #e2f3f5;
+    }
+
+    .warning-box {
+      border-color: var(--warning);
+      background-color: #fff3cd;
+    }
+
+    .danger-box {
+      border-color: var(--danger);
+      background-color: #f8d7da;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      color: #666;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Manual Técnico de Easy Wallet</h1>
+    <p style="color: #e6f2ff; font-size: 1.1em;">Versión 1.0 | Última actualización: 2024-10-26</p>
+  </header>
+
+  <div class="toc">
+    <h2>Tabla de Contenidos</h2>
+    <ul>
+      <li><a href="#intro">1. Introducción Técnica</a></li>
+      <li><a href="#arquitectura">2. Arquitectura del Sistema</a></li>
+      <li><a href="#requisitos">3. Requisitos Técnicos y Entorno</a></li>
+      <li><a href="#instalacion">4. Instalación y Despliegue</a></li>
+      <li><a href="#configuracion">5. Configuración del Proyecto</a></li>
+      <li><a href="#basedatos">6. Estructura de la Base de Datos</a></li>
+      <li><a href="#seguridad">7. Estado Actual de la Seguridad</a></li>
+      <li><a href="#troubleshooting">8. Resolución de Problemas (Troubleshooting)</a></li>
+      <li><a href="#changelog">9. Historial de Versiones</a></li>
+      <li><a href="#repositorio">10. Repositorio de Código</a></li>
+    </ul>
+  </div>
+
+  <div class="content-block" id="intro">
+    <h2>1. Introducción Técnica</h2>
+    <p>Este documento proporciona información técnica detallada sobre <strong>Easy Wallet</strong>. Está diseñado para
+      ser una guía completa para la instalación, configuración, mantenimiento y comprensión de la arquitectura interna
+      del software.</p>
+
+    <h3>1.1. Público Objetivo</h3>
+    <p>Este manual está dirigido a:</p>
+    <ul>
+      <li><strong>Desarrolladores:</strong> Que necesiten entender el código fuente, la estructura de paquetes y la
+        lógica de negocio para extender o mantener la aplicación.</li>
+      <li><strong>Administradores de Sistemas / Soporte L2:</strong> Responsables de desplegar la aplicación, configurar
+        el entorno, gestionar la base de datos y diagnosticar problemas técnicos.</li>
+    </ul>
+
+    <h3>1.2. Convenciones</h3>
+    <ul>
+      <li><strong>Negrita:</strong> Nombres de componentes, archivos o elementos de la interfaz.</li>
+      <li><code>código/comando</code>: Se usa para fragmentos de código, comandos de consola, rutas de archivo y nombres
+        de tablas/columnas.</li>
+      <li><span class="danger-box" style="padding: 2px 5px; display: inline-block;">IMPORTANTE</span>: Advertencias
+        críticas de seguridad o integridad de datos.</li>
+      <li><span class="warning-box" style="padding: 2px 5px; display: inline-block;">ADVERTENCIA</span>: Información que
+        requiere atención especial para evitar problemas.</li>
+    </ul>
+  </div>
+
+  <div class="content-block" id="arquitectura">
+    <h2>2. Arquitectura del Sistema</h2>
+    <p>Easy Wallet es una aplicación de escritorio monolítica desarrollada en Java, que sigue un patrón de diseño de 3
+      capas para separar la presentación, la lógica de negocio y el acceso a datos.</p>
+
+    <h3>2.1. Estructura de Paquetes del Proyecto</h3>
+    <p>La organización del código fuente sigue una estructura de paquetes funcional y por capas, como se detalla a
+      continuación:</p>
+    <pre><code>
+Easy_Wallet/
+└── Source Packages/
+    ├── com.easyWallet.conexion          // Gestiona la conexión JDBC a la BD
+    ├── com.easyWallet.fonts             // Carga de fuentes personalizadas
+    ├── com.easyWallet.graficos          // Componentes gráficos reutilizables
+    ├── com.easyWallet.imagenes          // Recursos de imágenes genéricos
+    │   ├── .Alerts
+    │   ├── .Datos
+    │   ├── .Inversiones
+    │   ├── .Login
+    │   ├── .MenuUsuario
+    │   ├── .Movimientos
+    │   └── .Tarjetas
+    ├── com.easyWallet.librerias         // Librerías o utilidades de terceros
+    ├── com.easyWallet.mensajes_emergentes // Clases para diálogos y notificaciones
+    ├── com.easyWallet.proyecto          // Lógica de negocio y Vistas (Forms)
+    │   ├── .Login
+    │   ├── .MenuEmpleadoAdministrador
+    │   ├── .MenuPrincipalU
+    │   └── .mainApp                     // Contiene la clase principal de arranque
+    ├── com.easyWallet.recursos          // Otros recursos no clasificados
+    └── MainApp.java                     // Punto de entrada principal (posiblemente obsoleto)
+    </code></pre>
+    <div class="note">
+      <strong>Observaciones sobre la Estructura:</strong>
+      <ul>
+        <li>La estructura está fuertemente orientada a la interfaz gráfica, con muchos paquetes dedicados a imágenes
+          para vistas específicas.</li>
+        <li>La lógica de negocio parece estar concentrada en el paquete <code>com.easyWallet.proyecto</code> y sus
+          subpaquetes, que contienen las ventanas (JFrame/JPanel) y sus eventos.</li>
+        <li>La separación entre modelo, vista y controlador (MVC) no es estricta; la lógica a menudo reside directamente
+          en los listeners de eventos de los componentes de la UI (patrón común en aplicaciones Swing iniciales).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-block" id="requisitos">
+    <h2>3. Requisitos Técnicos y Entorno</h2>
+
+    <h3>3.1. Requisitos de Software</h3>
+    <table>
+      <tr>
+        <th>Software</th>
+        <th>Versión Mínima</th>
+        <th>Versión Recomendada</th>
+        <th>Notas</th>
+      </tr>
+      <tr>
+        <td>Sistema Operativo</td>
+        <td>Windows 8 / Ubuntu 18.04</td>
+        <td>Windows 10/11 / Ubuntu 20.04+</td>
+        <td>La aplicación es portable siempre que se cumplan los requisitos de Java.</td>
+      </tr>
+      <tr>
+        <td>Java Development Kit (JDK)</td>
+        <td>JDK 8</td>
+        <td>JDK 17</td>
+        <td>Necesario para compilar y ejecutar el proyecto desde el IDE.</td>
+      </tr>
+      <tr>
+        <td>Entorno de Desarrollo (IDE)</td>
+        <td>Apache NetBeans 12.0</td>
+        <td>Última versión de NetBeans o IntelliJ IDEA</td>
+        <td>El proyecto está configurado para NetBeans.</td>
+      </tr>
+      <tr>
+        <td>Servidor de Base de Datos</td>
+        <td>MySQL 5.7</td>
+        <td>MySQL 8.0</td>
+        <td>Gestionado a través de XAMPP para facilidad de uso en entornos de desarrollo.</td>
+      </tr>
+      <tr>
+        <td>XAMPP</td>
+        <td>7.4.x</td>
+        <td>Última versión estable</td>
+        <td>Provee Apache (no usado), MySQL y phpMyAdmin.</td>
+      </tr>
+      <tr>
+        <td>MySQL Connector/J</td>
+        <td>8.0.25</td>
+        <td>Última versión compatible</td>
+        <td>Driver JDBC para la conexión Java-MySQL.</td>
+      </tr>
+    </table>
+
+    <div class="note">
+      <strong>Nota sobre el Entorno de Producción:</strong> Para un despliegue en producción, se recomienda no usar
+      XAMPP. En su lugar, instale un servidor MySQL dedicado y configure la aplicación para conectarse a él.
+    </div>
+  </div>
+
+  <div class="content-block" id="instalacion">
+    <h2>4. Instalación y Despliegue</h2>
+    <p>Esta guía cubre la instalación en un entorno de desarrollo local.</p>
+
+    <h3>4.1. Prerrequisitos</h3>
+    <ol>
+      <li><strong>Instalar JDK:</strong> Descargue e instale el JDK desde Oracle o Adoptium. Asegúrese de que la
+        variable de entorno <code>JAVA_HOME</code> esté configurada correctamente.</li>
+      <li><strong>Instalar XAMPP:</strong> Descargue e instale XAMPP desde Apache Friends. Inicie el panel de control de
+        XAMPP y asegúrese de que el servicio de <strong>MySQL</strong> esté en ejecución.</li>
+    </ol>
+
+    <h3>4.2. Configuración de la Base de Datos</h3>
+    <ol>
+      <li>Acceda a <strong>phpMyAdmin</strong> navegando a <code>http://localhost/phpmyadmin</code>.</li>
+      <li>Cree una nueva base de datos. En la pestaña SQL, ejecute:
+        <pre><code>CREATE DATABASE easywallet CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</code></pre>
+        <div class="warning-box"><strong>ADVERTENCIA:</strong> Usar el nombre <code>easywallet</code> es crucial para
+          que la configuración por defecto del proyecto funcione. Si usa otro nombre, deberá modificar el código fuente.
+        </div>
+      </li>
+      <li>Seleccione la base de datos <code>easywallet</code> recién creada.</li>
+      <li>Vaya a la pestaña <strong>Importar</strong>, seleccione el archivo <code>bank(13).sql</code> proporcionado con
+        el proyecto y ejecute la importación.</li>
+    </ol>
+
+    <h3>4.3. Configuración del Proyecto en NetBeans</h3>
+    <ol>
+      <li>Clone o descargue el repositorio del proyecto.</li>
+      <li>En NetBeans, vaya a <strong>File > Open Project</strong> y seleccione la carpeta del proyecto.</li>
+      <li><strong>Añadir el Driver JDBC:</strong>
+        <ul>
+          <li>Haga clic derecho en el proyecto en el explorador de proyectos y seleccione <strong>Properties</strong>.
+          </li>
+          <li>Vaya a la sección <strong>Libraries</strong>.</li>
+          <li>En la pestaña <strong>Compile</strong>, haga clic en <strong>Add JAR/Folder</strong>.</li>
+          <li>Navegue y seleccione el archivo <code>mysql-connector-java-X.X.XX.jar</code> que descargó.</li>
+        </ul>
+      </li>
+      <li>Limpie y construya el proyecto (<strong>Run > Clean and Build Project</strong>) para asegurar que todas las
+        dependencias están resueltas.</li>
+    </ol>
+
+    <h3>4.4. Verificación Post-Instalación</h3>
+    <p>Ejecute el proyecto (F6 o <strong>Run > Run Project</strong>). Si la ventana de inicio de sesión aparece sin
+      errores de conexión en la consola de NetBeans, la instalación ha sido exitosa.</p>
+  </div>
+
+  <div class="content-block" id="configuracion">
+    <h2>5. Configuración del Proyecto</h2>
+    <p>La configuración principal del proyecto se encuentra en el código fuente, específicamente en la clase responsable
+      de la conexión a la base de datos.</p>
+
+    <h3>5.1. Conexión a la Base de Datos</h3>
+    <p>La cadena de conexión está definida en una clase, comúnmente llamada <code>ConexionBD</code> o similar, dentro de
+      un paquete como <code>com.easywallet.conexion</code>.</p>
+    <pre><code class="language-java">
+// Ubicación: com.easywallet.conexion.ConexionBD.java
+
+public class ConexionBD {
+    // Parámetros de conexión
+    private static final String URL = "jdbc:mysql://localhost:3306/easywallet";
+    private static final String USER = "root";
+    private static final String PASSWORD = ""; // Contraseña vacía por defecto en XAMPP
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+}
+    </code></pre>
+    <p>Para cambiar la configuración (ej. para un entorno de producción):</p>
+    <ul>
+      <li><strong>URL:</strong> Modifique <code>localhost:3306</code> por la IP y puerto del servidor de base de datos y
+        <code>easywallet</code> por el nombre de la base de datos si es diferente.
+      </li>
+      <li><strong>USER:</strong> Cambie <code>root</code> por el usuario de la base de datos con los permisos adecuados.
+      </li>
+      <li><strong>PASSWORD:</strong> Establezca la contraseña correspondiente para el usuario.</li>
+    </ul>
+    <div class="danger-box"><strong>IMPORTANTE:</strong> Nunca suba credenciales de producción al control de versiones.
+      Utilice mecanismos como variables de entorno o archivos de configuración externos (no versionados) para gestionar
+      secretos en un entorno real.</div>
+  </div>
+
+  <div class="content-block" id="basedatos">
+    <h2>6. Estructura de la Base de Datos</h2>
+    <p>El sistema utiliza una base de datos MySQL llamada <code>bank</code>. A continuación se detalla el esquema
+      completo, incluyendo tablas, columnas y relaciones.</p>
+
+    <h3>6.1. Diagrama de Relaciones Lógicas</h3>
+    <p>El núcleo del sistema gira en torno a la tabla <code>usuarios</code>, de la cual dependen la mayoría de las demás
+      tablas a través de claves foráneas.</p>
+    <pre><code>
+[usuarios] 1--* [cuenta]
+    |
+    +--* [tarjetas]
+    |
+    +--* [movimientos] (como id_usuario)
+    |
+    +--* [reportes]
+    |
+    +--* [retiros]
+    |
+    +--* [configuraciones]
+
+[ajustes] (Tabla de configuración global, sin relación directa)
+    </code></pre>
+    <p><code>1--*</code> indica una relación de "uno a muchos".</p>
+
+    <h3>6.2. Descripción Detallada de Tablas y Columnas</h3>
+
+    <h4>Tabla: <code>usuarios</code></h4>
+    <p>Almacena la información personal de cada cliente.</p>
+    <table>
+      <tr>
+        <th>Columna</th>
+        <th>Tipo</th>
+        <th>Notas</th>
+      </tr>
+      <tr>
+        <td><code>id_cliente</code></td>
+        <td>varchar(10)</td>
+        <td><strong>(PK)</strong> Identificador único del cliente.</td>
+      </tr>
+      <tr>
+        <td><code>contraseña</code></td>
+        <td>varchar(30)</td>
+        <td><span class="danger-box" style="padding: 2px 5px; display: inline-block;">CRÍTICO</span> Almacena la
+          contraseña. Debe ser hasheada con BCrypt o similar.</td>
+      </tr>
+      <tr>
+        <td><code>nombre</code>, <code>apellidoP</code>, <code>apellidoM</code></td>
+        <td>varchar(50)</td>
+        <td>Nombre completo del cliente.</td>
+      </tr>
+      <tr>
+        <td><code>direccion</code>, <code>curp</code>, <code>fecha_nacimiento</code>, <code>genero</code>,
+          <code>no_telefono</code>, <code>correo</code>
+        </td>
+        <td>varchar/date</td>
+        <td>Datos demográficos y de contacto del cliente.</td>
+      </tr>
+    </table>
+
+    <h4>Tabla: <code>cuenta</code></h4>
+    <p>Almacena los detalles de la cuenta bancaria de cada usuario (si aplica, parece faltar en tu SQL).</p>
+
+    <h4>Tabla: <code>tarjetas</code></h4>
+    <p>Registra las tarjetas asociadas a un usuario.</p>
+    <table>
+      <tr>
+        <th>Columna</th>
+        <th>Tipo</th>
+        <th>Notas</th>
+      </tr>
+      <tr>
+        <td><code>no_tarjeta</code></td>
+        <td>varchar(20)</td>
+        <td><strong>(PK)</strong> Número de la tarjeta.</td>
+      </tr>
+      <tr>
+        <td><code>id_usuario</code></td>
+        <td>varchar(10)</td>
+        <td><strong>(FK)</strong> Referencia a <code>usuarios.id_cliente</code>.</td>
+      </tr>
+      <tr>
+        <td><code>cvv</code></td>
+        <td>varchar(5)</td>
+        <td>Código de seguridad. Debe ser almacenado de forma segura.</td>
+      </tr>
+      <tr>
+        <td><code>fecha</code></td>
+        <td>date</td>
+        <td>Fecha de vencimiento de la tarjeta.</td>
+      </tr>
+    </table>
+
+    <h4>Tabla: <code>movimientos</code></h4>
+    <p>Log de todas las transacciones financieras.</p>
+    <table>
+      <tr>
+        <th>Columna</th>
+        <th>Tipo</th>
+        <th>Notas</th>
+      </tr>
+      <tr>
+        <td><code>id_operacion</code></td>
+        <td>int(10)</td>
+        <td><strong>(PK, AI)</strong> Identificador único de la operación.</td>
+      </tr>
+      <tr>
+        <td><code>id_usuario</code></td>
+        <td>varchar(10)</td>
+        <td>Usuario que origina la transacción.</td>
+      </tr>
+      <tr>
+        <td><code>id_destinatario</code></td>
+        <td>varchar(10)</td>
+        <td>Usuario que recibe (si aplica). '*' para operaciones sin destinatario.</td>
+      </tr>
+      <tr>
+        <td><code>cantidad</code></td>
+        <td>varchar(50)</td>
+        <td><span class="warning-box" style="padding: 2px 5px; display: inline-block;">ADVERTENCIA</span> Debería ser un
+          tipo numérico (<code>DECIMAL(15, 2)</code>) para evitar errores de precisión.</td>
+      </tr>
+      <tr>
+        <td><code>tipo_operacion</code></td>
+        <td>varchar(50)</td>
+        <td>Ej: 'RENDIMIENTO', 'Retiro', 'TRANSFERENCIA'.</td>
+      </tr>
+      <tr>
+        <td><code>descripcion</code></td>
+        <td>varchar(250)</td>
+        <td>Detalle o motivo de la operación.</td>
+      </tr>
+      <tr>
+        <td><code>fecha</code></td>
+        <td>date</td>
+        <td>Fecha de la transacción.</td>
+      </tr>
+    </table>
+
+    <h4>Tabla: <code>ajustes</code></h4>
+    <p>Configuración global del sistema.</p>
+    <table>
+      <tr>
+        <th>Columna</th>
+        <th>Tipo</th>
+        <th>Notas</th>
+      </tr>
+      <tr>
+        <td><code>rendimiento</code></td>
+        <td>float</td>
+        <td><strong>(PK)</strong> Tasa de rendimiento global para inversiones.</td>
+      </tr>
+    </table>
+
+    <h4>Tabla: <code>configuraciones</code></h4>
+    <p>Preferencias específicas del usuario.</p>
+    <table>
+      <tr>
+        <th>Columna</th>
+        <th>Tipo</th>
+        <th>Notas</th>
+      </tr>
+      <tr>
+        <td><code>id_cliente</code></td>
+        <td>varchar(10)</td>
+        <td><strong>(FK, Unique)</strong> Referencia a <code>usuarios.id_cliente</code>.</td>
+      </tr>
+      <tr>
+        <td><code>f_perfil</code></td>
+        <td>longblob</td>
+        <td>Almacena la imagen de perfil del usuario.</td>
+      </tr>
+      <tr>
+        <td><code>modo</code></td>
+        <td>varchar(30)</td>
+        <td>Preferencia de tema (ej: 'ModoOscuro').</td>
+      </tr>
+      <tr>
+        <td><code>visibilidad</code></td>
+        <td>varchar(20)</td>
+        <td>Controla la visibilidad del saldo.</td>
+      </tr>
+    </table>
+
+    <h4>Otras tablas: <code>reportes</code>, <code>retiros</code></h4>
+    <p>Estas tablas almacenan información de soporte y operaciones específicas, vinculadas a la tabla
+      <code>usuarios</code>.
+    </p>
+
+    <h3>6.3. Restricciones y Relaciones (Constraints)</h3>
+    <p>La integridad de los datos se mantiene mediante claves foráneas con la opción
+      <code>ON DELETE CASCADE ON UPDATE CASCADE</code>. Esto significa que:
+    </p>
+    <ul>
+      <li>Si un registro en <code>usuarios</code> se <strong>actualiza</strong> (cambia su <code>id_cliente</code>),
+        todos los registros relacionados en las otras tablas se actualizarán automáticamente.</li>
+      <li>Si un registro en <code>usuarios</code> se <strong>elimina</strong>, todos sus registros asociados (tarjetas,
+        movimientos, configuraciones, etc.) serán eliminados en cascada.</li>
+    </ul>
+    <div class="danger-box"><strong>IMPLICACIONES DE <code>ON DELETE CASCADE</code>:</strong> La eliminación de un
+      usuario borrará permanentemente todo su historial financiero. Esta operación debe ser manejada con extrema
+      precaución en la aplicación, requiriendo confirmación explícita del usuario y, preferiblemente, implementando un
+      "borrado lógico" (marcar como inactivo) en lugar de un borrado físico para entornos de producción.</div>
+  </div>
+
+  <div class="content-block" id="seguridad">
+    <h2>7. Estado Actual de la Seguridad</h2>
+    <p>Esta sección describe los mecanismos y prácticas de seguridad implementados en la versión actual (v1.0) de Easy
+      Wallet.</p>
+
+    <h3>7.1. Autenticación de Usuarios</h3>
+    <ul>
+      <li><strong>Almacenamiento de Contraseñas:</strong> Las credenciales de los usuarios se validan contra la columna
+        <code>contraseña</code> en la tabla <code>usuarios</code>. El campo tiene un tipo <code>varchar(30)</code>, lo
+        que indica que las contraseñas se almacenan en <strong>texto plano</strong> o con un mecanismo de codificación
+        simple, no un hash criptográfico moderno.
+      </li>
+      <li><strong>Gestión de Sesión:</strong> La sesión del usuario se mantiene activa mientras la aplicación está en
+        ejecución. La información del usuario autenticado se almacena en variables estáticas o de instancia en las
+        clases principales de la UI para ser accedida por las diferentes ventanas.</li>
+    </ul>
+
+    <h3>7.2. Seguridad en el Acceso a Datos</h3>
+    <ul>
+      <li><strong>Manejo de Consultas:</strong> Las consultas a la base de datos se construyen y ejecutan a través de la
+        capa de conexión JDBC. La implementación actual puede combinar el uso de <code>Statement</code> (con
+        concatenación de cadenas) y <code>PreparedStatement</code>. Las operaciones que involucran datos introducidos
+        por el usuario son susceptibles a ataques de inyección SQL si no utilizan <code>PreparedStatement</code> de
+        forma consistente.</li>
+      <li><strong>Credenciales de la Base de Datos:</strong> Las credenciales de conexión a la base de datos (usuario,
+        contraseña, URL) están codificadas directamente (hardcodeadas) en la clase de conexión Java (ej.
+        <code>com.easywallet.conexion.ConexionBD</code>). Para cualquier despliegue, estas credenciales son las mismas
+        para todos los usuarios de la aplicación.
+      </li>
+    </ul>
+
+    <h3>7.3. Integridad y Flujo de Datos</h3>
+    <ul>
+      <li><strong>Transacciones no Atómicas:</strong> Operaciones críticas como una transferencia financiera, que
+        implican múltiples actualizaciones en la base de datos (un débito y un crédito en la tabla
+        <code>movimientos</code>), no están envueltas en una transacción de base de datos
+        (<code>Connection.setAutoCommit(false)</code>, <code>commit()</code>, <code>rollback()</code>). Esto significa
+        que si ocurre un fallo a mitad de la operación, la base de datos puede quedar en un estado inconsistente (ej. se
+        debita de una cuenta pero no se acredita en la otra).
+      </li>
+      <li><strong>Validación de Datos:</strong> La validación de las entradas del usuario (ej. formatos de número,
+        longitud de texto) se realiza principalmente en la capa de la interfaz de usuario (UI), antes de enviar los
+        datos a la lógica de negocio.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Resumen del Modelo de Seguridad:</strong> El modelo de seguridad de la aplicación está diseñado para un
+      entorno de escritorio local y de un solo usuario, donde la principal barrera de seguridad es el inicio de sesión
+      inicial. La comunicación entre la aplicación y la base de datos (asumiendo que está en <code>localhost</code>) no
+      está cifrada por defecto por cuestiones de pruebas de desarrollo.
+    </div>
+  </div>
+
+  <div class="content-block" id="troubleshooting">
+    <h2>8. Resolución de Problemas (Troubleshooting)</h2>
+    <table>
+      <tr>
+        <th>Problema</th>
+        <th>Causa Probable</th>
+        <th>Solución</th>
+      </tr>
+      <tr>
+        <td><code>java.sql.SQLException: No suitable driver found...</code></td>
+        <td>El JAR del conector de MySQL no está en el classpath del proyecto.</td>
+        <td>Asegúrese de haber agregado el archivo <code>mysql-connector-java-X.X.XX.jar</code> a las librerías del
+          proyecto en NetBeans (Paso 4.3).</td>
+      </tr>
+      <tr>
+        <td><code>java.sql.SQLSyntaxErrorException: Unknown database 'easywallet'</code></td>
+        <td>La base de datos no existe o tiene un nombre diferente.</td>
+        <td>Verifique que ha creado la base de datos con el nombre exacto <code>easywallet</code> en phpMyAdmin (Paso
+          4.2).</td>
+      </tr>
+      <tr>
+        <td><code>java.sql.SQLException: Access denied for user 'root'@'localhost'</code></td>
+        <td>La contraseña para el usuario <code>root</code> en su instalación de XAMPP/MySQL no es la predeterminada
+          (vacía).</td>
+        <td>Modifique el campo <code>PASSWORD</code> en la clase <code>ConexionBD.java</code> con la contraseña
+          correcta.</td>
+      </tr>
+      <tr>
+        <td>La aplicación se compila pero no se ejecuta o se cierra inmediatamente.</td>
+        <td>Error de configuración de JDK en el IDE o una excepción no controlada en el arranque.</td>
+        <td>Revise la consola de salida de NetBeans para ver el stack trace completo del error. Asegúrese de que el
+          proyecto está configurado para usar un JDK compatible.</td>
+      </tr>
+    </table>
+  </div>
+
+
+   <div class="content-block" id="repositorio">
+    <h2>9. Repositorio de Código y Control de Versiones</h2>
+    <p>El código fuente completo de <strong>Easy Wallet</strong> está gestionado mediante Git y alojado en GitHub. Este
+      repositorio sirve como la única fuente de verdad para el desarrollo, seguimiento de problemas (issues) y
+      colaboración.</p>
+
+    <h3>9.1. Acceso al Repositorio</h3>
+    <p>Puedes acceder al repositorio público en la siguiente URL:</p>
+    <div class="note" style="text-align: center; font-size: 1.1em;">
+      <a href="https://github.com/alex574r/Easy_Wallet.git" target="_blank"
+        style="font-weight: bold; color: var(--primary);">
+        https://github.com/alex574r/Easy_Wallet.git
+      </a>
+    </div>
+    
+    <h3>9.2. Cómo Clonar el Repositorio</h3>
+    <p>Para obtener una copia local del proyecto y empezar a trabajar, utiliza el siguiente comando de Git en tu
+      terminal:</p>
+    <pre><code>git clone https://github.com/alex574r/Easy_Wallet.git</code></pre>
+    <p>Esto creará una carpeta llamada <code>easy-wallet-repo</code> en tu directorio actual, que contiene todo el
+      proyecto listo para ser abierto en NetBeans</p>
+
+    <h3>9.3. Estructura de Ramas (Branching Strategy)</h3>
+    <p>El proyecto sigue un modelo de ramificación simple:</p>
+    <ul>
+      <li><code><strong>main</strong></code>: Esta rama contiene la versión más estable y lista para producción del
+        código. Todo lo que está en <code>main</code> se considera desplegable.</li>
+      <li><strong>Ramas de características (<code>feature/...</code>)</strong>: Para cada nueva funcionalidad o
+        corrección de error, se debe crear una nueva rama a partir de <code>main</code> (ej.
+        <code>feature/dark-mode</code> o <code>fix/login-bug</code>). Una vez completada y probada, se fusiona de nuevo
+        en <code>main</code> a través de un Pull Request.
+      </li>
+    </ul>
+  </div>
+
+  <div class="content-block" id="changelog">
+    <h2>10. Historial de Versiones</h2>
+    <h4>Versión 1.0 (2025-06-26)</h4>
+    <ul>
+      <li>Lanzamiento inicial de la aplicación.</li>
+      <li>Funcionalidades básicas: registro de usuarios, gestión de tarjetas, transferencias y retiros.</li>
+      <li>Integración con base de datos MySQL.</li>
+    </ul>
+  </div>
+
+
+ 
+
+
+
+  <footer>
+    <p>© 2025 Easy Wallet - Todos los derechos reservados</p>
+    <p>Documentación técnica generada por Horizon Labs®</p>
+  </footer>
+</body>
+
+</html>

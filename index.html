@@ -1,123 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easy Wallet - Revolución Financiera</title>
+    <title>Easy Wallet - Tu Centro Financiero de Escritorio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-   <!-- Hero Section -->
-<section class="hero">
-    <div class="particles" id="particles-js"></div>
-    <div class="hero-content">
-        <div class="logo-container">
-            <img src="assets/logo.png" alt="Easy Wallet Logo" class="logo animate__animated animate__fadeInDown">
-        </div>
-        <h1 class="animate__animated animate__fadeIn animate__delay-1s">Easy Wallet</h1>
-        <p class="tagline animate__animated animate__fadeIn animate__delay-1-5s">La revolución en tus finanzas personales</p>
-        <div class="animate__animated animate__fadeIn animate__delay-2s">
-            <a href="#features" class="btn">Explorar</a>
-            <a href="#updates" class="btn btn-outline">Actualizaciones</a>
-        </div>
-        
-        <!-- NUEVA ANIMACIÓN CON TU TARJETA (cambia solo esto) -->
-        <div class="wallet-animation animate__animated animate__fadeIn animate__delay-2-5s">
-            <div class="wallet-card">
-                <!-- Cara frontal - Tu imagen de tarjeta -->
-                <div class="wallet-face">
-                    <img src="assets/easywallet-card.png" alt="Tarjeta EasyWallet">
-                </div>
-                <!-- Cara trasera - Diseño de tarjeta genérico -->
-                <div class="wallet-face wallet-back">
-                    <div class="card-back">
-                        <div class="magnetic-strip"></div>
-                        <div class="signature-line">FIRMA</div>
-                        <div class="cvv">CVV 123</div>
-                        <div class="chip"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles" id="particles-js"></div>
+        <div class="hero-content">
+            <div class="logo-container">
+                <img src="assets/logo.png" alt="Easy Wallet Logo" class="logo animate__animated animate__fadeInDown">
+            </div>
+            <h1 class="animate__animated animate__fadeIn animate__delay-1s">Easy Wallet</h1>
+            <p class="tagline animate__animated animate__fadeIn animate__delay-1-5s">La revolución en tus finanzas
+                personales, directamente en tu escritorio.</p>
+            <div class="animate__animated animate__fadeIn animate__delay-2s">
+                <a href="#features" class="btn">Explorar Características</a>
+                <a href="manual_instalacion.html" class="btn btn-outline" target="_blank">Guía de Instalación</a>
+            </div>
+
+            <!-- Animación de la tarjeta -->
+            <div class="wallet-animation animate__animated animate__fadeIn animate__delay-2-5s">
+                <div class="wallet-card">
+                    <!-- Cara frontal -->
+                    <div class="wallet-face">
+                        <img src="assets/easywallet-card.png" alt="Tarjeta EasyWallet">
+                    </div>
+                    <!-- Cara trasera -->
+                    <div class="wallet-face wallet-back">
+                        <div class="card-back">
+                            <div class="magnetic-strip"></div>
+                            <div class="signature-line">FIRMA</div>
+                            <div class="cvv">CVV 123</div>
+                            <div class="chip"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-    
+    </section>
+
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="features-container">
-            <h2 class="section-title reveal">🚀 Características Principales</h2>
+            <h2 class="section-title reveal">Características Principales</h2>
             <div class="features-grid">
-                <div class="feature-card reveal">
-                    <img src="https://img.icons8.com/color/96/link--v1.png" alt="Sincronización" class="feature-icon-img">
-                    <h3 class="feature-title">Sincronización Avanzada</h3>
-                    <p>Conecta tu wallet con otras billeteras para mayor control financiero.</p>
-                </div>
-                <div class="feature-card reveal">
-                    <img src="https://img.icons8.com/color/96/fingerprint-scan.png" alt="Biometría" class="feature-icon-img">
-                    <h3 class="feature-title">Autenticación Biométrica</h3>
-                    <p>Protección con huella dactilar y reconocimiento facial.</p>
-                </div>
+                <!-- Características que se conservan y son relevantes -->
                 <div class="feature-card reveal">
                     <img src="https://img.icons8.com/color/96/bar-chart.png" alt="Reportes" class="feature-icon-img">
-                    <h3 class="feature-title">Reportes Visuales</h3>
-                    <p>Obtén análisis gráficos sobre tus ingresos y egresos.</p>
+                    <h3 class="feature-title">Reportes de Movimientos</h3>
+                    <p>Obtén un registro detallado y análisis de tus ingresos y egresos.</p>
                 </div>
                 <div class="feature-card reveal">
-                    <img src="https://img.icons8.com/color/96/secured-letter.png" alt="Código por correo" class="feature-icon-img">
+                    <img src="https://img.icons8.com/color/96/secured-letter.png" alt="Código por correo"
+                        class="feature-icon-img">
                     <h3 class="feature-title">Verificación por Correo</h3>
-                    <p>Recibe códigos de seguridad en tu email para mayor protección.</p>
+                    <p>Recupera tu cuenta y recibe códigos de seguridad en tu email para mayor protección.</p>
                 </div>
                 <div class="feature-card reveal">
-                    <img src="https://img.icons8.com/color/96/stocks.png" alt="Bolsa de valores" class="feature-icon-img">
-                    <h3 class="feature-title">Inversión en Bolsa</h3>
-                    <p>Invierte en acciones y sigue el comportamiento del mercado desde tu wallet.</p>
+                    <img src="https://img.icons8.com/color/96/stocks.png" alt="Bolsa de valores"
+                        class="feature-icon-img">
+                    <h3 class="feature-title">Simulador de Inversiones</h3>
+                    <p>Proyecta tus rendimientos y sigue el comportamiento de tus inversiones desde tu wallet.</p>
                 </div>
                 <div class="feature-card reveal">
                     <img src="https://img.icons8.com/color/96/lock--v1.png" alt="Seguridad" class="feature-icon-img">
-                    <h3 class="feature-title">Mayor Seguridad</h3>
-                    <p>Ahora tu wallet incluye autenticación con huella y cifrado de extremo a extremo.</p>
+                    <h3 class="feature-title">Seguridad por Contraseña</h3>
+                    <p>Protege el acceso a tu información financiera con un inicio de sesión seguro.</p>
+                </div>
+                <!-- Características nuevas/ajustadas para reflejar la app de escritorio -->
+                <div class="feature-card reveal">
+                    <img src="https://img.icons8.com/color/96/bank-cards.png" alt="Tarjetas" class="feature-icon-img">
+                    <h3 class="feature-title">Gestión Centralizada</h3>
+                    <p>Administra todas tus tarjetas y cuentas bancarias en un solo lugar.</p>
                 </div>
                 <div class="feature-card reveal">
-                    <img src="https://img.icons8.com/color/96/qr-code--v1.png" alt="Escaneo QR" class="feature-icon-img">
-                    <h3 class="feature-title">Pago por Código QR</h3>
-                    <p>Escanea códigos QR para enviar o recibir pagos instantáneamente.</p>
-                </div>
-                <div class="feature-card reveal">
-                    <img src="https://img.icons8.com/color/96/line-chart--v1.png" alt="Estadísticas" class="feature-icon-img">
-                    <h3 class="feature-title">Estadísticas Visuales</h3>
-                    <p>Visualiza tus movimientos financieros con gráficas interactivas y filtros.</p>
+                    <img src="https://img.icons8.com/fluency/96/money-transfer.png" alt="Transferencias"
+                        class="feature-icon-img">
+                    <h3 class="feature-title">Transferencias Directas</h3>
+                    <p>Envía dinero de forma segura a otros usuarios de Easy Wallet.</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Updates Section -->
     <section class="updates" id="updates">
         <div class="updates-container">
-            <h2 class="section-title reveal"> Lo Nuevo de Easy Wallet</h2>
-            
+            <h2 class="section-title reveal">Lo Nuevo de Easy Wallet</h2>
+
             <div class="update-card reveal">
                 <div class="update-date">15 Mayo 2023</div>
-                <h3 class="update-title">Integración de Verificacion con NIP</h3>
-                <p>Ahora lograras entrar a tu cuneta con lña verificacion a travez de correo electronico.</p>
+                <h3 class="update-title">Integración de Verificación con NIP</h3>
+                <p>Ahora podrás entrar a tu cuenta con la verificación a través de correo electrónico y gestionar tu
+                    NIP.</p>
             </div>
-            
+
             <div class="update-card reveal">
                 <div class="update-date">28 Abril 2023</div>
                 <h3 class="update-title">Nuevo Dashboard Personalizable</h3>
-                <p>Rediseñamos completamente el panel de control para que puedas organizarlo según tus necesidades y preferencias visuales.</p>
+                <p>Rediseñamos completamente el panel de control para que puedas organizarlo según tus necesidades y
+                    preferencias visuales.</p>
             </div>
-            
+
             <div class="update-card reveal">
                 <div class="update-date">10 Abril 2023</div>
-                <h3 class="update-title">Inversiones a acciones extranjeras</h3>
-                <p>Lanzamos una nueva versión donde podras comprar acciones del extranjero.</p>
+                <h3 class="update-title">Inversiones en Acciones Extranjeras</h3>
+                <p>Lanzamos una nueva versión donde podrás comprar acciones del extranjero y simular su rendimiento.</p>
             </div>
         </div>
     </section>
-    
+
+     <!-- Brand Showcase Section -->
+    <section class="showcase-direct" id="showcase">
+        <div class="showcase-container-direct">
+            <div class="showcase-text-content reveal">
+                <h2 class="section-title">Diseñado para Ti</h2>
+                <p>
+                    En <strong>Horizon Labs</strong>, creemos que la gestión financiera debe ser tan atractiva como funcional. 
+                    Cada elemento de <strong>Easy Wallet</strong>, desde el logo hasta la interfaz de usuario, ha sido cuidadosamente diseñado 
+                    para ofrecerte una experiencia intuitiva, segura y visualmente agradable.
+                </p>
+                <p>
+                    Nuestra identidad de marca refleja modernidad, confianza y simplicidad, los mismos valores que encontrarás al usar nuestra aplicación.
+                </p>
+                <a href="#features" class="btn btn-showcase">Ver Características</a>
+            </div>
+            <div class="showcase-image-content reveal">
+                <img src="assets/brand-showcase.png" alt="Galería de marca de Easy Wallet">
+            </div>
+        </div>
+    </section>
     <!-- Footer -->
     <footer>
         <img src="assets/logo.png" alt="Easy Wallet Logo" class="footer-logo">
@@ -126,12 +146,14 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="manual_usuario.html" target="_blank">📘 Manual de Usuario</a>
         </div>
         <p class="copyright">© 2025 Horizon Labs. Todos los derechos reservados.</p>
     </footer>
-    
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>

@@ -119,24 +119,3 @@ function reveal() {
     });
 }
 
-// Inicializar al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    reveal();
-    
-    // Efecto adicional para las imágenes al hacer hover
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            const img = card.querySelector('.feature-icon-img');
-            if (img) {
-                img.style.transform = 'scale(1.1) rotate(5deg)';
-            }
-        });
-        card.addEventListener('mouseleave', () => {
-            const img = card.querySelector('.feature-icon-img');
-            if (img) {
-                img.style.transform = 'scale(1)';
-            }
-        });
-    });
-});

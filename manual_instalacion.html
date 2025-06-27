@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual de Instalación - Easy Wallet</title>
+  <style>
+    :root {
+      --primary: #003366;
+      --secondary: #e6f2ff;
+      --accent: #ff6b00;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3, h4 {
+      color: var(--primary);
+      margin-top: 30px;
+    }
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; border-bottom: 2px solid var(--secondary); padding-bottom: 8px; }
+    h3 { font-size: 1.4em; }
+    .content-block {
+      background: white;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: var(--primary);
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: var(--secondary);
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: #d63384;
+    }
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+      tab-size: 4;
+    }
+    .warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .toc {
+      background: var(--secondary);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .toc ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .toc li {
+      margin: 8px 0;
+    }
+    .toc a {
+      text-decoration: none;
+      color: var(--primary);
+    }
+    .toc a:hover {
+      text-decoration: underline;
+      color: var(--accent);
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      color: #666;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Easy Wallet</h1>
+    <h2>Manual de Instalación</h2>
+  </header>
+
+  <div class="toc">
+    <h2>Tabla de Contenidos</h2>
+    <ul>
+      <li><a href="#introduccion">1. Introducción</a></li>
+      <li><a href="#requisitos">2. Requisitos del Sistema</a></li>
+      <li><a href="#instalacion">3. Instalación Paso a Paso</a></li>
+      <li><a href="#verificacion">4. Verificación de la Instalación</a></li>
+
+    </ul>
+  </div>
+
+  <div class="content-block" id="introduccion">
+    <h2>1. Introducción</h2>
+    <p>Este documento proporciona instrucciones detalladas para instalar y configurar <strong>Easy Wallet</strong>, un sistema de gestión financiera personal desarrollado en Java con conexión a MySQL.</p>
+    
+    <h3>Audiencia objetivo</h3>
+    <ul>
+      <li>Administradores de sistemas</li>
+      <li>Desarrolladores</li>
+      <li>Usuarios técnicos</li>
+    </ul>
+  </div>
+
+  <div class="content-block" id="requisitos">
+    <h2>2. Requisitos del Sistema</h2>
+  
+    <h3>2.1. Requisitos de Hardware</h3>
+    <table>
+      <tr>
+        <th>Componente</th>
+        <th>Mínimo</th>
+        <th>Recomendado</th>
+      </tr>
+      <tr>
+        <td>Procesador</td>
+        <td>Intel Core i3 (2.4 GHz)</td>
+        <td>Intel Core i5 (3.0 GHz+)</td>
+      </tr>
+      <tr>
+        <td>RAM</td>
+        <td>4 GB</td>
+        <td>8 GB</td>
+      </tr>
+      <tr>
+        <td>Almacenamiento</td>
+        <td>500 MB libres</td>
+        <td>1 GB SSD</td>
+      </tr>
+    </table>
+
+    <h3>2.2. Requisitos de Software</h3>
+    <table>
+      <tr>
+        <th>Software</th>
+        <th>Versión Mínima</th>
+        <th>Versión Recomendada</th>
+      </tr>
+      <tr>
+        <td>Sistema Operativo</td>
+        <td>Windows 8 / Ubuntu 18.04</td>
+        <td>Windows 10/11 / Ubuntu 20.04+</td>
+      </tr>
+      <tr>
+        <td>Java (JDK)</td>
+        <td>JDK 8</td>
+        <td>JDK 17</td>
+      </tr>
+      <tr>
+        <td>MySQL</td>
+        <td>MySQL 5.7</td>
+        <td>MySQL 8.0</td>
+      </tr>
+      <tr>
+        <td>XAMPP (Opcional)</td>
+        <td>7.4.0+</td>
+        <td>Última versión</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="content-block" id="instalacion">
+    <h2>3. Instalación Paso a Paso</h2>
+    
+    <h3>3.1. Instalación de Dependencias</h3>
+    <h4>Instalar Java JDK</h4>
+    <ol>
+      <li>Descargar desde <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">Oracle JDK</a></li>
+      <li>Configurar variables de entorno:
+        <pre><code>export JAVA_HOME=/usr/lib/jvm/jdk-17
+export PATH=$PATH:$JAVA_HOME/bin</code></pre>
+      </li>
+    </ol>
+
+    <h4>Instalar XAMPP (para MySQL)</h4>
+    <ol>
+      <li>Descargar desde <a href="https://www.apachefriends.org/" target="_blank">Apache Friends</a></li>
+      <li>Ejecutar instalador y activar MySQL en el panel de control</li>
+    </ol>
+
+    <h3>3.2. Configuración de la Base de Datos</h3>
+    <ol>
+      <li>Abrir <strong>phpMyAdmin</strong> (http://localhost/phpmyadmin)</li>
+      <li>Crear una nueva base de datos:
+        <pre><code>CREATE DATABASE "bank";</code></pre>
+      </li>
+      <li>Importar el archivo SQL:
+        <ul>
+          <li>Seleccionar la base <code>easywallet</code></li>
+          <li>Ir a <strong>Importar</strong> > Subir <code>bank(13).sql</code></li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>3.3. Configuración del Proyecto en NetBeans</h3>
+    <ol>
+      <li>Clonar o descargar el repositorio del proyecto</li>
+      <li>Abrir NetBeans y seleccionar <strong>File > Open Project</strong></li>
+      <li>Asegurar las dependencias:
+        <ul>
+          <li>Click derecho en el proyecto > <strong>Properties > Libraries</strong></li>
+          <li>Agregar <code>mysql-connector-java-8.0.xx.jar</code></li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="content-block" id="configuracion">
+    
+    <div class="warning">
+      <strong>Importante:</strong> No dejar credenciales en blanco en entornos de producción.
+    </div>
+  </div>
+
+  <div class="content-block" id="verificacion">
+    <h2>
+      4. Verificación de la Instalación</h2>
+    <ol>
+      <li>Ejecutar el proyecto en NetBeans (<strong>Run > Build Project</strong>)</li>
+      <li>Verificar logs en consola para errores de conexión</li>
+      <li>Probar inicio de sesión con credenciales predeterminadas (si aplica)</li>
+    </ol>
+  </div>
+
+
+
+    <h3>B. Enlaces de Descarga</h3>
+    <ul>
+      <li><a href="https://www.oracle.com/java/" target="_blank">Java JDK</a></li>
+      <li><a href="https://www.apachefriends.org/" target="_blank">XAMPP</a></li>
+      <li><a href="https://dev.mysql.com/downloads/connector/j/" target="_blank">MySQL Connector/J</a></li>
+    </ul>
+
+    <h3>C. Soporte Técnico</h3>
+    <p>Contacto: <a href="mailto:soporte@horizonlabs.com">soporte@horizonlabs.com</a></p>
+  </div>
+
+  <footer>
+    <p>© 2025 Easy Wallet - Todos los derechos reservados</p>
+    <p>Documentación generada  por Horizon Labs®</p>
+  </footer>
+</body>
+</html>
